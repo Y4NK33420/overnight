@@ -1,4 +1,4 @@
-<!-- templates/login.html -->
+<!-- templates/phone_verify.html -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@
     {% load static %}  <!-- Add this line to load static files -->
 
     <meta charset="UTF-8">
-    <title>Log In</title>
+    <title>Phone Verification</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -17,13 +17,14 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <h2>Log In</h2>
+    <h2>Verify Your Phone Number</h2>
+    <p>A verification code has been sent to your phone number.</p>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Log In</button>
+        <label for="verification_code">Enter Verification Code:</label>
+        <input type="text" name="verification_code" id="verification_code" required>
+        <button type="submit">Verify</button>
     </form>
-    <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

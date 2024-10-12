@@ -4,6 +4,8 @@
 
 <html lang="en">
 <head>
+    {% load static %}  <!-- Add this line to load static files -->
+
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">

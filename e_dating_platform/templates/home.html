@@ -3,12 +3,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}  <!-- Add this line to load static files -->
+
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     <h2>Welcome, {{ user.username }}!</h2>
     <p>This is the home page.</p>
     <a href="{% url 'logout' %}">Log Out</a>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
