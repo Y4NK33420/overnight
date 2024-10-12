@@ -20,6 +20,11 @@ def signup_view(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
+
+def home_view(request):
+    return render(request, 'home.html')
+
+
 # Login View
 def login_view(request):
     if request.method == 'POST':
